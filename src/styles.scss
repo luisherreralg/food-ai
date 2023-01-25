@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+$bg-color: #82fa86;
+$font-color: #601038;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+html {
+  background: $bg-color;
+  color: $font-color;
+}
