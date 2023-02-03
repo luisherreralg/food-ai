@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +11,8 @@ export class OpenAiApiService {
   OPEN_API_KEY: string;
 
   constructor(private http: HttpClient) {
-    this.OPEN_API_GENERATE_URL = 'https://api.openai.com/v1/completions';
-    this.OPEN_API_KEY = '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';
+    this.OPEN_API_GENERATE_URL = environment.OPEN_API_GENERATE_URL;
+    this.OPEN_API_KEY = environment.OPEN_API_KEY;
   }
 
   generateResponse = (
