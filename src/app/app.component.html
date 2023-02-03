@@ -1,15 +1,24 @@
 <div class="form-container">
-  <h1>FOOD AI - RECIPES</h1>
+  <h1>GENERADOR DE RECETAS 🍽️</h1>
   <form [formGroup]="form">
-    <label>Recipe Name:</label>
+    <label>Escriba el plato que quieras preparar:</label>
     <input type="text" formControlName="recipeName" />
-    <label>Number of people:</label>
+    <label>Número de comensales:</label>
     <input type="number" formControlName="numOfPeople" />
-    <button (click)="generateRecipe()">Generate Recipe</button>
+    <button (click)="generateRecipe()">Generar receta</button>
   </form>
 </div>
 
-<div class="description" *ngIf="generatedResponse$ | async as response">
+<div
+  class="description"
+  *ngIf="generatedResponse$ | async as response; else loading"
+>
   <h2>RECETA:</h2>
   <p>{{ response.choices[0].text }}</p>
 </div>
+
+<ng-template #loading>
+  <div class="loading" *ngIf="clicked">
+    <h2>Generando su receta, puede tartar un poco...</h2>
+  </div>
+</ng-template>

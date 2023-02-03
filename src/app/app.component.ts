@@ -10,6 +10,7 @@ import { OpenAiApiService } from './services/open-ai-api.service';
 })
 export class AppComponent {
   generatedResponse$ = new Observable<any>();
+  clicked = false;
 
   form = new FormGroup({
     recipeName: new FormControl('', Validators.required),
@@ -19,6 +20,7 @@ export class AppComponent {
   constructor(private aiApi: OpenAiApiService) {}
 
   generateRecipe = () => {
+    this.clicked = true;
     this.generatedResponse$ = this.aiApi.generateResponse(
       this.form.get('recipeName')!.value as string,
       Number(this.form.get('numOfPeople')!.value)
