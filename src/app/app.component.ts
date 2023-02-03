@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { CohereApiService } from './services/cohere-api.service';
+import { OpenAiApiService } from './services/open-ai-api.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ export class AppComponent {
     numOfPeople: new FormControl('', Validators.required),
   });
 
-  constructor(private aiApi: CohereApiService) {}
+  constructor(private aiApi: OpenAiApiService) {}
 
   generateRecipe = () => {
     this.generatedResponse$ = this.aiApi.generateResponse(

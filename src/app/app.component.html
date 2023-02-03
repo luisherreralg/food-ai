@@ -9,6 +9,7 @@
   </form>
 </div>
 
-<div *ngIf="generatedResponse$ | async as response">
-  <p>{{ response.text }}</p>
+<div class="description" *ngIf="generatedResponse$ | async as response">
+  <h2>RECETA:</h2>
+  <p>{{ response.choices[0].text }}</p>
 </div>
